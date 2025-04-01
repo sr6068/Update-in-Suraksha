@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Assistance</title>
+<link rel="icon" href="./Suraksha Logo.PNG" type="image/png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        .chatbot, .nav-bar {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <h2>Emergency Assistance System</h2>
+    </div>
+    
+    <div id="map"></div>
+    
+    <div class="chatbot">
+        <p>Chatbot: How can I assist you?</p>
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var map = L.map('map').setView([20.5937, 78.9629], 5); // Default to India
+
+            // Load OSM Tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Get User's Location
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(
+                    function (position) {
+                        var lat = position.coords.latitude;
+                        var lon = position.coords.longitude;
+                        var userMarker = L.marker([lat, lon]).addTo(map)
+                            .bindPopup("You are here").openPopup();
+                        map.setView([lat, lon], 15);
+                    },
+                    function () {
+                        alert("Geolocation access denied.");
+                    }
+                );
+            } else {
+                alert("Geolocation not supported by this browser.");
+            }
+
+            // Add emergency responders (example locations)
+            var ambulanceMarker = L.marker([28.7041, 77.1025]).addTo(map)
+                .bindPopup("Ambulance: Delhi");
+
+            var responderMarker = L.marker([19.0760, 72.8777]).addTo(map)
+                .bindPopup("First Responder: Mumbai");
+        });
+    </script>
+</body>
+</html>
