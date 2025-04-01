@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">       
     <title>SURAKSHA</title>
-    <link rel="icon" href="C:\Users\KIIT\suraksha\logo top.png" type="image/png">                                 
+    <link rel="icon" href="C:\Users\KIIT\suraksha\logo top.png" type="image/png">                           <!-- yaha pe surakhsha logo for title -->        
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -191,6 +191,29 @@
             border-radius: 50%;
             border: 2px solid #4a4a4a;
         }
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.custom-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    background-color: #3787c1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #13639c;
+    transform: scale(1.05);
+}
 
         footer {
             text-align: center;
@@ -318,7 +341,7 @@
         updateDateTime();
     </script>   
     <header>
-        <img src="./Suraksha Logo.PNG" alt="Suraksha Logo">                  
+        <img src="./Suraksha Logo.PNG" alt="Suraksha Logo">                     <!-- yaha pe suraksha ka image jo ki left top me hoga  -->  
         <div class="language-select-container">
             <select class="language-select" id="language-select" onchange="changeLanguage()">
                 <option value="en">English</option>
@@ -385,12 +408,23 @@
             <source src="./Suraksha Background.mp4" type="video/mp4">                          
             Your browser does not support the video tag.
         </video>
-        <img src="./Suraksha Logo.PNG" alt="Overlay Image">                     
+        <img src="./Suraksha Logo.PNG" alt="Overlay Image">                      
     </div>
 
     <main>
         <div class="disease-container" id="disease-cards"></div>
     </main>
+
+<div class="button-container">
+    <a href="emergencysuraksha.html">
+        <button class="custom-button">Emergency Assistance</button>
+    </a>
+    <a href=".html">
+        <button class="custom-button">Learn More</button>
+    </a>
+</div>
+
+
 
     <script>
         const content = {
@@ -398,31 +432,31 @@
                 "cardiac-arrest": {
                     front: "Cardiac Arrest",
                     back: "1. Perform CPR immediately.\n2. Use a defibrillator (AED).",
-                    video: "https://www.youtube.com/embed/9emAmwJ3vFw", 
+                    video: "https://www.youtube.com/embed/qvf_74DM880", 
                     image: "./Cardiac Arrest.webp"
                 },
                 "asthma": {
                     front: "Asthma",
                     back: "1. Use a rescue inhaler.\n2. Take steroids to reduce swelling.",
-                    video: "https://www.youtube.com/watch?v=1dV2vFAcqIw", 
+                    video: "https://www.youtube.com/embed/1dV2vFAcqIw", 
                     image: "./Asthma.jpeg"
                 },
                 "seizure": {
                     front: "Seizure Attack",
                     back: "1. Take prescribed medication.\n2. Lay the person on their side for safety.",
-                    video: "https://www.youtube.com/watch?v=hLeSlQS9g2c",
+                    video: "https://www.youtube.com/embed/WEhj3UfuRzgr7WFA",
                     image: "./Seizure Attack.webp"
                 },
                 "skin-burn": {
                     front: "Skin Burn",
                     back: "1. Run under cool water.\n2. Apply antibiotic cream.",
-                    video: "https://www.youtube.com/watch?v=zaDkQ6SFJpQ",
+                    video: "https://www.youtube.com/embed/zaDkQ6SFJpQ&t=1s",
                     image: "./Skin Burn.jpg"
                 },
                 "cuts": {
                     front: "Cuts",
                     back: "1. Clean with soap and water.\n2. Cover with a bandage.",
-                    video: "https://www.youtube.com/watch?v=AhANvBB9hz0", 
+                    video: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
                     image: "./Cuts.jpeg"
                 }
             },
@@ -459,6 +493,10 @@
                 }
             }
         };
+
+
+
+
 
         function changeLanguage() {
             const language = document.getElementById('language-select').value;
@@ -534,3 +572,4 @@ showChatButton.addEventListener('click', () => {
     </footer>
 </body>
 </html>
+
